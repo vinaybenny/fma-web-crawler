@@ -5,8 +5,7 @@
 @description: This spider is designed to crawl the domain mentioned under "ALLOWED_DOMAINS" declared below, to extract FMA-issued
     warnings and other related details. The design of the crawler is based on the HTML structure of the target domains as on
     the creation date. The spider parses the HTML content, and creates a JSON dump of the page with the parsed content and
-    other metadata. Currently the JSON file will contain the speech title, the date of speech, the URL to the page, the JSON filename,
-    and the content of the speech.
+    other metadata. 
     
     The spider accepts the following command line parameters:
         1. "results_to_crawl": the number of search results to crawl within the result pages-if not supplied, all warnings are scraped.
@@ -25,7 +24,7 @@ import re
 ALLOWED_DOMAINS = ['www.www.fma.govt.nz']
 ROOT_URL = 'https://www.fma.govt.nz/news-and-resources/warnings-and-alerts/?start=%s'
 DATA_DIRECTORY = "../data/data_scraped/"    # Target directory for JSON files
-RESULTS_TO_CRAWL = None                     # Default number of pages to crawl, within the results fetched by date filters 
+RESULTS_TO_CRAWL = None                     # Default number of results to crawl
 custom_settings = {
         "DOWNLOAD_DELAY": 5,                # Delay (in seconds) between successive hits on the domain
         "CONCURRENT_REQUESTS_PER_DOMAIN": 2
